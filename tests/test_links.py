@@ -1,6 +1,6 @@
 import allure
 import pytest
-from pages.base_page import BasePage
+from pages.order_page import OrderPage
 from pages.main_page import MainPage
 from data import DataUrls
 from data import TextData
@@ -11,7 +11,7 @@ class TestLogo:
     @allure.title('Открытие сайта Самоката по логотипу "Самокат"')
     @allure.description('На странице заказа нажать на логотип "Самокат", выполнен переход на главную страницу Самоката')
     def test_main_page_open_by_scooter_logo(self, driver):
-        page = BasePage(driver)
+        page = OrderPage(driver)
         page.open_page(DataUrls.ORDER_SCOOTER_URL)
         page.click_scooter_logo()
         page.wait_for_page_load(DataUrls.SCOOTER_URL)
@@ -22,7 +22,7 @@ class TestLogo:
     @allure.title('Открытие сайта Дзен по логотипу "Яндекс"')
     @allure.description('На странице заказа нажать на логотип "Яндекс", выполнен переход на страницу Дзен')
     def test_dzen_page_open_by_yandex_logo(self, driver):
-        page = BasePage(driver)
+        page = OrderPage(driver)
         page.open_page(DataUrls.ORDER_SCOOTER_URL)
         page.click_yandex_logo()
         page.wait_for_new_tab(2)
